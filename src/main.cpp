@@ -192,7 +192,7 @@ int main() {
     Shader hdrShader("resources/shaders/hdr.vs", "resources/shaders/hdr.fs");
     Shader blurShader("resources/shaders/blur.vs", "resources/shaders/blur.fs");
     Shader terrainShader("resources/shaders/podloga.vs", "resources/shaders/podloga.fs");
-    Shader lightCubeShader("light_cube.vs", "light_cube.fs");
+    //Shader lightCubeShader("resourcelight_cube.vs", "light_cube.fs");
 
     glm::vec3 lightPos(0.0f, -5.0f, 0.0f);
 
@@ -575,13 +575,13 @@ int main() {
         ourShader.setVec3("dirLight.diffuse", dirLight.diffuse);
         ourShader.setVec3("dirLight.specular", dirLight.specular);
 
-        lightCubeShader.use();
+        //lightCubeShader.use();
         glClearColor(programState->clearColor.r, programState->clearColor.g, programState->clearColor.b, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom),
                                                 (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = programState->camera.GetViewMatrix();
-        lightCubeShader.setMat4("view", view);
+        //lightCubeShader.setMat4("view", view);
 
         // render the loaded model
         view = programState->camera.GetViewMatrix();
