@@ -1,4 +1,4 @@
-/snap/clion/184/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/pc/Desktop/RG/Projekat_RG
+/snap/clion/184/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/pc/Desktop/RG_Andreea/Projekat_RG
 -- The C compiler identification is GNU 10.3.0
 -- The CXX compiler identification is GNU 10.3.0
 -- Detecting C compiler ABI info
@@ -16,4 +16,4 @@
 -- Found ASSIMP: /usr/lib/x86_64-linux-gnu/libassimp.so
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/pc/Desktop/RG/Projekat_RG/cmake-build-debug
+-- Build files have been written to: /home/pc/Desktop/RG_Andreea/Projekat_RG/cmake-build-debug

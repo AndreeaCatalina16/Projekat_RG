@@ -21,7 +21,7 @@ unsigned int loadCubemap(vector<std::string> faces);
 
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
-//Camera camera(glm::vec3(0.0f, 0.0f, -3.0f));
+
 void mouse_callback(GLFWwindow *window, double xpos, double ypos);
 
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset);
@@ -138,7 +138,7 @@ int main() {
 
     // glfw window creation
     // --------------------
-    GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Projekat RG", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Projekat Računarska grafika", NULL, NULL);
     if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -192,7 +192,7 @@ int main() {
     Shader hdrShader("resources/shaders/hdr.vs", "resources/shaders/hdr.fs");
     Shader blurShader("resources/shaders/blur.vs", "resources/shaders/blur.fs");
     Shader terrainShader("resources/shaders/podloga.vs", "resources/shaders/podloga.fs");
-    //Shader lightCubeShader("resourcelight_cube.vs", "light_cube.fs");
+
 
     glm::vec3 lightPos(0.0f, -5.0f, 0.0f);
 
@@ -201,7 +201,7 @@ int main() {
     Model ourModel("resources/objects/LadyCatModel/ladycat.obj");
     ourModel.SetShaderTextureNamePrefix("material.");
 
-    Model ourModel2("resources/objects/kruna1/kruna.obj");
+    Model ourModel2("resources/objects/crown/untitled.obj");
     ourModel.SetShaderTextureNamePrefix("material.");
 
 
@@ -393,13 +393,13 @@ int main() {
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
-    unsigned int lightCubeVAO;
-    glGenVertexArrays(1, &lightCubeVAO);
-    glBindVertexArray(lightCubeVAO);
+    //unsigned int lightCubeVAO;
+    //glGenVertexArrays(1, &lightCubeVAO);
+    //glBindVertexArray(lightCubeVAO);
 
-    glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
+    //glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    //glEnableVertexAttribArray(0);
 
 
 
@@ -407,15 +407,14 @@ int main() {
     unsigned int transparentTexture = loadTexture(FileSystem::getPath("resources/textures/flame").c_str());
     vector<glm::vec3> flames
             {
-                    //glm::vec3(-1.5f, -5.0f, -4.48f),
-                    glm::vec3( 8.8f, -4.7f, 4.51f),
-                    //glm::vec3( 0.0f, -4.7f, 10.7f),
-                    //glm::vec3(-1.2f, -4.3f, 5.3f),
-                    //glm::vec3 (2.0f, -4.0f, -0.6f),
-                    glm::vec3( 1.0f, -6.0f, 12.7f),
-                    glm::vec3(1.0f, -6.4f, 10.5f),
-                    glm::vec3 (-10.0f, -2.0f, -0.6f),
-                    glm::vec3(-15.0f, -5.0f, -4.48f)
+                    glm::vec3( 8.8f, 1.7f, 4.51f),
+                    glm::vec3( 0.0f, 1.7f, 10.7f),
+                    glm::vec3(-1.2f, 1.3f, 5.3f),
+                    glm::vec3 (2.0f, 1.0f, -0.6f),
+                    glm::vec3( 1.0f, 1.0f, 12.7f),
+                    glm::vec3(1.0f, 1.4f, 10.5f),
+                    glm::vec3 (-10.0f, 1.0f, -0.6f),
+                    glm::vec3(-15.0f, 1.0f, -4.48f)
             };
 
 
@@ -575,13 +574,13 @@ int main() {
         ourShader.setVec3("dirLight.diffuse", dirLight.diffuse);
         ourShader.setVec3("dirLight.specular", dirLight.specular);
 
-        //lightCubeShader.use();
+
         glClearColor(programState->clearColor.r, programState->clearColor.g, programState->clearColor.b, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glm::mat4 projection = glm::perspective(glm::radians(programState->camera.Zoom),
                                                 (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = programState->camera.GetViewMatrix();
-        //lightCubeShader.setMat4("view", view);
+
 
         // render the loaded model
         view = programState->camera.GetViewMatrix();
@@ -590,20 +589,20 @@ int main() {
         ourShader.setMat4("projection", projection);
         ourShader.setMat4("view", view);
 
-       glEnable(GL_CULL_FACE);
+       //glEnable(GL_CULL_FACE);
        // glCullFace(GL_FRONT);
       // glCullFace(GL_BACK);
        // glDisable(GL_CULL_FACE);
 
 
-       model = glm::translate(model,programState->modelPosition);
+        model = glm::translate(model,programState->modelPosition);
 
 
         ourShader.setMat4("model", model);
         ourModel.Draw(ourShader);
-        model = glm::translate(model,glm::vec3(programState->modelPosition.x-10.0f,1.0f,programState->modelPosition.z-10.0f));
-        model = glm::rotate(model,glm::radians(270.0f),glm::vec3(1.0f,0.0f,0.0f));
-        model = glm::rotate(model,glm::radians(270.0f),glm::vec3(0.0f,0.0f,1.0f));
+        model = glm::translate(model,glm::vec3(1.0f,18.1f,-0.001f));
+        model = glm::scale(model, glm::vec3(0.28f));
+
 
         ourShader.setMat4("model",model);
         ourModel2.Draw(ourShader);
@@ -700,10 +699,11 @@ int main() {
         }
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
         // Now we render floating point color buffer to a 2D quad and tonemap HDR colors to a default framebuffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        hdrShader.use(); //?
+        hdrShader.use();
 
         // Bind bloom and non bloom
         glActiveTexture(GL_TEXTURE0);

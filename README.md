@@ -3,17 +3,19 @@
 Projekat za kurs iz Računarske grafike.  
 Za izradu je korišćen skelet projekta: `https://github.com/matf-racunarska-grafika/project_base.git` i materijali sa [LearnOpenGL](https://learnopengl.com/).  
 
-
+- `Napomena:` Nisam uspela da postavim scenu u neku kutiju kao sto ste mi sugerisali. Popravila sam 2D plamenove, da ne nestaju kada se kamera pomera prema mapi i pozicionirala sam krunu na glavu modela.
+- [Snimak](https://youtu.be/5766CM-yTRA)
 ----------------
 
 ## Uputstvo
-1. `git clone https://github.com`
+1. `git clone git@github.com:AndreeaCatalina16/Projekat_RG.git`
 2. CLion -> Open -> path/to/my/project_base
 3. Main se nalazi u src/main.cpp
 4. Cpp fajlovi se nalaze u src folder
 5. Zaglavlja (h i hpp) fajlovi se nalaze u include
 6. Šejderi se nalaze u folder shaders. `Vertex shader` ima ekstenziju `.vs`, `fragment shader` ima ekstenziju `.fs`
 7. ALT+SHIFT+F10 -> project_base -> run
+
 
 ----------------
 
@@ -39,4 +41,4 @@ Za izradu je korišćen skelet projekta: `https://github.com/matf-racunarska-gra
 
 ## Korišćeni modeli
 - [LadyCat](https://free3d.com/3d-model/ladycat-284493.html)
-- [Crown](https://sketchfab.com/3d-models/diamond-crown-278f1a6651c143399dd6dbf02f536193)
+- [Crown](https://sketchfab.com/3d-models/crown-set-collection-fbx-low-poly-free-3dd2357f8d894aeebfc76a1549aeb6d8)
