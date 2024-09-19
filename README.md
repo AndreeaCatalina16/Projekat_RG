@@ -3,7 +3,7 @@
 Projekat za kurs iz Računarske grafike.  
 Za izradu je korišćen skelet projekta: `https://github.com/matf-racunarska-grafika/project_base.git` i materijali sa [LearnOpenGL](https://learnopengl.com/).  
 
-- `Napomena:` Nisam uspela da postavim scenu u neku kutiju kao sto ste mi sugerisali. Popravila sam 2D plamenove, da ne nestaju kada se kamera pomera prema mapi i pozicionirala sam krunu na glavu modela.
+
 - [Snimak](https://youtu.be/5766CM-yTRA)
 ----------------
 
